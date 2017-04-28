@@ -9,7 +9,7 @@ import 'rxjs/add/operator/first';
 *
 *
 * @langversion TypeScript 2.0
-* @tiptext
+* @tiptext  
 *
 */
 export class RxEmitter {
@@ -100,7 +100,7 @@ export class RxEmitter {
             this.cache[eventName].id = guid();
             this.cache[eventName].eventName = eventName;
         }
-        
+
         if (!this.cache[eventName].subject) {
             this.cache[eventName].subject = new Subject();
         }

@@ -1,3 +1,13 @@
+/**
+* RxJs + EventBus
+*
+*
+* @langversion TypeScript 2.0
+* @tiptext
+*
+*/
+
+
 import { Subscription } from 'rxjs/Subscription';
 import { RxEmitter } from './rxemitter';
 
