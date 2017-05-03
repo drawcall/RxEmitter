@@ -1,7 +1,7 @@
 ![logo](https://github.com/a-jie/RxEmitter/blob/master/logo/logo.png?raw=true)
 
 # RxEmitter
-----
+
 ### RxEmitter = Rxjs + eventBus.  
 RxEmitter combines the characteristics of Rxjs and eventBus.Emit a Stream of similar events, and you can accept it in any place.  
 Use RxEmitter to make your project easy to decouple.
