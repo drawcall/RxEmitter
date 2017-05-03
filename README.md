@@ -53,4 +53,4 @@ items$: Observable<Item[]>;
 <li *ngFor="let item of items $ | async"
 ```
 
-![logo](https://github.com/a-jie/RxEmitter/blob/master/logo/emitter?raw=true)
+![logo](https://github.com/a-jie/RxEmitter/blob/master/logo/emitter.png?raw=true)
