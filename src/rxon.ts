@@ -1,12 +1,3 @@
-/**
-* RxJs + EventBus
-*
-*
-* @langversion TypeScript 2.0
-* @tiptext
-*
-*/
-
 import { RxEmitter } from './rxemitter';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -16,7 +7,7 @@ export function RxOn(a: string | Object, b: boolean | string = false, c: any = n
 
     return (target: any, name: string) => {
         let eventName: string = eventObj.name || eventObj.event || eventObj.eventName;
-
+        
         Object.defineProperty(target, name, {
             enumerable: true,
             configurable: true,

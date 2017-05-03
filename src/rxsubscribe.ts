@@ -1,25 +1,13 @@
-/**
-* RxJs + EventBus
-*
-*
-* @langversion TypeScript 2.0
-* @tiptext
-*
-*/
-
-
 import { Subscription } from 'rxjs/Subscription';
 import { RxEmitter } from './rxemitter';
 
 export function RxSubscribe(a: string | Object, b: boolean | string = false, c: any = null) {
 
-    let eventObj: IEventObj = typeof a == 'object' ? a : { eventName: a, unsubscribe: b, target: c };
-
     return (target: any, name: string, descriptor: PropertyDescriptor) => {
+        let eventObj: IEventObj = typeof a == 'object' ? a : { eventName: a, unsubscribe: b, target: c };
 
-        let oldFun = descriptor.value;
         let eventName: string = eventObj.name || eventObj.event || eventObj.eventName;
-        let subscription: Subscription = RxEmitter.on(eventName, eventObj.target).subscribe(oldFun);
+        let subscription: Subscription = RxEmitter.on(eventName, eventObj.target).subscribe(descriptor.value.bind(target));
 
         if (eventObj.target) {
             let cache = RxEmitter.get(eventName);
