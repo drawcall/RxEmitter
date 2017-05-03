@@ -1,8 +1,11 @@
-![Alt text](https://github.com/a-jie/RxEmitter/blob/master/logo/logo.png?raw=true)
+![logo](https://github.com/a-jie/RxEmitter/blob/master/logo/logo.png?raw=true)
 
 # RxEmitter
-
-Reactive Extensions Library for JavaScript. This is a rewrite of [Reactive-Extensions/RxJS](https://github.com/Reactive-Extensions/RxJS) and is the latest production-ready version of RxJS. This rewrite is meant to have better performance, better modularity, better debuggable call stacks, while staying mostly backwards compatible, with some breaking changes that reduce the API surface.
+----
+### RxEmitter = Rxjs + eventBus.  
+RxEmitter combines the characteristics of Rxjs and eventBus.Emit a Stream of similar events, and you can accept it in any place.  
+Use RxEmitter to make your project easy to decouple.
+It can be used for angular2 +, React, Vue and so on
 
 
 ## Installation and Usage
@@ -49,3 +52,5 @@ items$: Observable<Item[]>;
 //in html
 <li *ngFor="let item of items $ | async"
 ```
+
+![logo](https://github.com/a-jie/RxEmitter/blob/master/logo/emitter?raw=true)
