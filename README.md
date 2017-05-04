@@ -42,14 +42,14 @@ RxEmitter.on('ADD_AN_NUMBER').subscribe(x=> console.log(`ADD A NEW NUMBER - ${x}
 
 ## API Methods
 
-#### RxEmitter.emit<T>(eventName: string, ...rest: T[]): string
+#### RxEmitter.emit\<T\>(eventName: string, ...rest: T[]): string
 > emit a global event , passing a stream
 
 ```
 RxEmitter.emit("HELLO_WORLD", myObj);
 ```
 
-#### toRxEmitter<T>(this: Observable<T>, a: any, b?: any): Observable<T>
+#### toRxEmitter\<T\>(this: Observable\<T\>, a: any, b?: any): Observable\<T\>
 > RxEmitter.emit an Observable sequence.
 
 ```
@@ -89,7 +89,7 @@ subscribe(value:number){
 }
 ```
 
-#### RxEmitter.on<T>(eventName: string, target?: any): Observable<T>
+#### RxEmitter.on\<T\>(eventName: string, target?: any): Observable<T>
 > attaches an event handlers
 
 ```
