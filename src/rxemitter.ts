@@ -18,7 +18,9 @@ export class RxEmitter {
 
     static on<T>(eventName: string, target?: any): Observable<T> {
         this.createChache<T>(eventName);
-        if (target) this.cache[eventName].id = target;
+        if (target !== undefined) {
+            this.cache[eventName].id = target;
+        }
 
         return this.cache[eventName].subject;
     }
@@ -109,7 +111,7 @@ export class RxEmitter {
     }
 }
 
-interface ICacheObj<T> {
+export interface ICacheObj<T> {
     subject?: Subject<T>;
     eventName?: string;
     id?: any;

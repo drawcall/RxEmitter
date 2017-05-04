@@ -38,7 +38,7 @@ class ToRxEmitterSubscriber<T, R> extends Subscriber<T> {
     }
 
     protected _next(x: T) {
-        let result;
+        let result: any;
 
         if (this.eventObj.map)
             result = this.eventObj.map.call(null, x, this.count++);
