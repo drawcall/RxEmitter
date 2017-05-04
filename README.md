@@ -34,8 +34,7 @@ RxOn:
 import { RxEmitter } from 'rxemitter';
 ...
 //on
-RxEmitter.on('ADD_AN_NUMBER')
-		  .subscribe(x=> console.log(`ADD A NEW NUMBER - ${x}`))
+RxEmitter.on('ADD_AN_NUMBER').subscribe(x=> console.log(`ADD A NEW NUMBER - ${x}`))
 ```
 
 #### Rxemitter can be used for Angular2+、React、Vue and so on.

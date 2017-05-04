@@ -2,7 +2,9 @@ import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/observer';
 import { Subject } from 'rxjs/Subject';
+
 import 'rxjs/add/operator/first';
+import 'rxjs/add/operator/take';
 
 /**
 * RxJs + EventBus
@@ -26,10 +28,10 @@ export class RxEmitter {
     }
 
     static one<T>(eventName: string, target?: any): Observable<T> {
-        return this.on(eventName, target).first();
+        return this.on(eventName, target).take(1);
     }
 
-    static emit<T>(eventName: string, ...rest: any[]): string {
+    static emit<T>(eventName: string, ...rest: T[]): string {
         this.createChache<T>(eventName);
 
         if (rest.length == 1)
