@@ -102,9 +102,7 @@ RxEmitter.on("HELLO_WORLD")
 > disposal the resources , target is your registration id
 
 ```
-RxEmitter.on("HELLO_WORLD")
-			.map(x=>x+1)
-			.subscribe(x=>console.log(x));
+RxEmitter. unsubscribe(this,"HELLO_WORLD");
 ```
 
 ## Used in the angular
