@@ -1,0 +1,22 @@
+{
+  "name": "rxemitter",
+  "version": "0.1.5",
+  "description": "rxemitter = rxjs + eventbus",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a-jie/RxEmitter.git"
+  },
+  "author": "a-jie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/a-jie/RxEmitter/issues"
+  },
+  "homepage": "https://github.com/a-jie/RxEmitter#readme",
+  "devDependencies": {
+    "rxjs": "^5.3.1"
+  }
+}
