@@ -10,7 +10,9 @@
     "clean_cjs": "shx rm -rf ./dist/cjs",
     "clean_es6": "shx rm -rf ./dist/es6",
     "cjs": "npm-run-all clean_cjs compile_cjs",
-    "es6": "npm-run-all clean_es6 compile_es6"
+    "es6": "npm-run-all clean_es6 compile_es6",
+    "package": "node .makepackage.js",
+    "all": "npm-run-all es6 cjs package"
   },
   "repository": {
     "type": "git",
