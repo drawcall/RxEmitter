@@ -3,7 +3,7 @@
 # RxEmitter
 
 ### RxEmitter = Rxjs + eventBus.  
-RxEmitter combines the characteristics of Rxjs and eventBus.Emit a Stream of similar events, and you can accept it in any place.  
+RxEmitter combines the characteristics of Rxjs and eventBus.Emit a Stream of similar events, and you can accept it in any where.  
 Use RxEmitter to make your project easy to decouple.
 It can be used for angular,React,Vue and so on.
 
@@ -145,4 +145,19 @@ Vue.component('b', {
 
 //html
 <div>{{ value$ }}</div>
+```
+
+## Building
+```
+//build es6
+npm run es6
+
+//build commonjs
+npm run cjs
+
+//clone package
+npm run package
+
+//run all
+npm run all
 ```
