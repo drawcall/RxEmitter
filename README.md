@@ -20,7 +20,7 @@ npm install rxemitter
 ##### emit
 
 ```js
-import { RxEmitter, toRxEmitter } from 'rxemitter';
+import { RxEmitter, toRxEmitter, rxEmit } from 'rxemitter';
 ...
 
 /** emit */
