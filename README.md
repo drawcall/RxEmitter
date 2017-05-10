@@ -22,11 +22,14 @@ npm install rxemitter
 ```js
 import { RxEmitter, toRxEmitter } from 'rxemitter';
 ...
-//emit 
+/** emit */
 Observable.form([1,2,3,4])
           .map(x => x*10)
           .toRxEmitter('ADD_AN_NUMBER')
-          .subscribe(x => x);
+//or 
+Observable.of('hello world')
+          .rxEmit('ADD_NEW_WORD')
+          .subscribe(x=>x);
 ```
 
 ##### on
@@ -49,14 +52,14 @@ RxEmitter.on('ADD_AN_NUMBER').subscribe(x=> console.log(`ADD A NEW NUMBER - ${x}
 RxEmitter.emit("HELLO_WORLD", myObj);
 ```
 
-#### toRxEmitter\<T\>(this: Observable\<T\>, a: any, b?: any): Observable\<T\>
+#### toRxEmitter\<T\>(this: Observable\<T\>, a: any, b?: any): Subscription
 > RxEmitter.emit an Observable sequence.
 
 ```
 Observable
 .fromEvent(document, 'click')
 .interval(1000)
-.toRxEmitter({ eventName: 'MOUSE_CLICK', timeout: 0 })
+.toRxEmitter({ eventName: 'MOUSE_CLICK', timeout: 10 })
 
 or
 
@@ -69,6 +72,16 @@ or
 Observable
 .from([1,2,3,4])
 toRxEmitter('CHANGE_EVENT')
+```
+
+#### rxEmit\<T\>(this: Observable\<T\>, a: any, b?: any): Observable\<T\>
+> rxEmit an Observable sequence.
+
+```
+Observable
+.fromEvent(document, 'click')
+.rxEmit({ eventName: 'MOUSE_CLICK', log:true })
+.subscribe(x=>x)
 ```
 
 #### RxOn(a: string | Object, b: boolean | string = false, c: any = null)
@@ -94,15 +107,15 @@ subscribe(value:number){
 
 ```
 RxEmitter.on("HELLO_WORLD")
-			.map(x=>x+1)
-			.subscribe(x=>console.log(x));
+		.map(x=>x+1)
+		.subscribe(x=>console.log(x));
 ```
 
 #### unsubscribe(target: any, eventName?: string)
 > disposal the resources , target is your registration id
 
 ```
-RxEmitter. unsubscribe(this,"HELLO_WORLD");
+RxEmitter.unsubscribe(this,"HELLO_WORLD");
 ```
 
 ## Used in the angular
@@ -129,7 +142,7 @@ Vue.component('a', {
     return {
       value$: this.$fromDOMEvent('input', 'keyup')
       .pluck('target', 'value')
-      .toRxEmitter('INPUT_KEYUP')
+      .rxEmit('INPUT_KEYUP')
     }
   }
 })

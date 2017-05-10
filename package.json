@@ -1,6 +1,6 @@
 {
   "name": "rxemitter",
-  "version": "0.1.6",
+  "version": "0.2.1",
   "description": "rxemitter = rxjs + eventbus",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,7 @@
     "cjs": "npm-run-all clean_cjs compile_cjs",
     "es6": "npm-run-all clean_es6 compile_es6",
     "package": "node .makepackage.js",
+    "publish": "cd ./dist/cjs && npm publish",
     "all": "npm-run-all es6 cjs package"
   },
   "repository": {

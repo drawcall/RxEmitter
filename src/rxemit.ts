@@ -8,21 +8,19 @@
 */
 
 import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs/Subscription';
 import { ToRxEmitterOperator } from './torxemitteroperator';
 
-export function toRxEmitter<T>(this: Observable<T>, a: any, b?: any): Subscription {
+export function rxEmit<T>(this: Observable<T>, a: any, b?: any): Observable<T> {
     let eventObj: any = typeof a == 'object' ? a : { eventName: a, map: b };
     if (eventObj.name) eventObj.eventName = eventObj.name;
     if (eventObj.event) eventObj.eventName = eventObj.event;
 
-    return this.lift(new ToRxEmitterOperator(eventObj))
-        .subscribe(x => { eventObj.log && console.log(x); });
+    return this.lift(new ToRxEmitterOperator(eventObj));
 }
 
-Observable.prototype.toRxEmitter = toRxEmitter;
+Observable.prototype.rxEmit = rxEmit;
 declare module 'rxjs/Observable' {
     interface Observable<T> {
-        toRxEmitter: typeof toRxEmitter;
+        rxEmit: typeof rxEmit;
     }
 }
