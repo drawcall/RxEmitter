@@ -69,13 +69,13 @@ or
 
 Observable
 .from([1,2,3,4])
-toRxEmitter({ eventName: 'VALUE', map: x=>x+10 })
+.toRxEmitter({ eventName: 'VALUE', map: x=>x+10 })
 
 or
 
 Observable
 .from([1,2,3,4])
-toRxEmitter('CHANGE_EVENT')
+.toRxEmitter('CHANGE_EVENT')
 ```
 
 #### rxEmit\<T\>(this: Observable\<T\>, a: any, b?: any): Observable\<T\>
