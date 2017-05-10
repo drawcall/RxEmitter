@@ -22,11 +22,14 @@ npm install rxemitter
 ```js
 import { RxEmitter, toRxEmitter } from 'rxemitter';
 ...
+
 /** emit */
 Observable.form([1,2,3,4])
           .map(x => x*10)
           .toRxEmitter('ADD_AN_NUMBER')
-//or 
+
+or
+ 
 Observable.of('hello world')
           .rxEmit('ADD_NEW_WORD')
           .subscribe(x=>x);
@@ -37,6 +40,7 @@ Observable.of('hello world')
 ```js
 import { RxEmitter } from 'rxemitter';
 ...
+
 //on
 RxEmitter.on('ADD_AN_NUMBER').subscribe(x=> console.log(`ADD A NEW NUMBER - ${x}`))
 ```
