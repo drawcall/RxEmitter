@@ -33,6 +33,10 @@ or
 Observable.of('hello world')
           .rxEmit('ADD_NEW_WORD')
           .subscribe(x=>x);
+          
+or 
+
+RxEmitter.emit("EVENT_NAME",{a:1,b:2});
 ```
 
 ##### on
