@@ -45,8 +45,20 @@ RxEmitter.emit("EVENT_NAME",{a:1,b:2});
 import { RxEmitter } from 'rxemitter';
 ...
 
-//on
-RxEmitter.on('ADD_AN_NUMBER').subscribe(x=> console.log(`ADD A NEW NUMBER - ${x}`))
+/** on */
+RxEmitter.on('ADD_AN_NUMBER').subscribe(x=> console.log(`ADD A NEW NUMBER - ${x}`));
+
+or
+
+@RxOn("ADD_AN_NUMBER")
+value:Observable<number>;
+
+or 
+
+@RxSubscribe("ADD_AN_NUMBER")
+subscribe(value:number){
+    console.log(value);
+}
 ```
 
 ##### Rxemitter can be used for Angular2+、React、Vue and so on.
