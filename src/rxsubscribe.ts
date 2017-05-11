@@ -15,10 +15,10 @@ export function RxSubscribe(a: string | Object, b: boolean | string = false, c: 
         }
 
         if (eventObj.unsubscribe === true ||
-            eventObj.unsubscribe == "unsubscribe" ||
-            eventObj.unsubscribe == "destroy" ||
-            eventObj.unsubscribe == "off" ||
-            eventObj.unsubscribe == "remove") {
+            eventObj.unsubscribe == 'unsubscribe' ||
+            eventObj.unsubscribe == 'destroy' ||
+            eventObj.unsubscribe == 'off' ||
+            eventObj.unsubscribe == 'remove') {
 
             let oldNgOnDestroy = target.ngOnDestroy;
 
