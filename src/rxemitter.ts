@@ -76,13 +76,22 @@ export class RxEmitter {
 
     static unsubscribe(target: any, eventName?: string) {
         let cache: ICacheObj<any>[] = this.getByTarget(target, eventName);
-
+        
         for (let i: number = 0; i < cache.length; i++) {
             cache[i].subscription && cache[i].subscription.unsubscribe();
         }
     }
 
-    static offByTarget(target: string) {
+    static offAllByTarget(target: any) {
+        try {
+            this.offByTarget(target);
+            this.unsubscribe(target);
+        } catch (e) {
+
+        }
+    }
+
+    static offByTarget(target: any) {
         for (let key in this.cache) {
             let obj: ICacheObj<any> = this.cache[key];
             if (obj.id == target) delete this.cache[key];

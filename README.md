@@ -131,11 +131,25 @@ RxEmitter.on("HELLO_WORLD")
 		.subscribe(x=>console.log(x));
 ```
 
+#### RxEmitter.off(eventName: string): any
+> remove all event handlers
+
+```
+RxEmitter.off("HELLO_WORLD");
+```
+
 #### unsubscribe(target: any, eventName?: string)
 > disposal the resources , target is your registration id
 
 ```
 RxEmitter.unsubscribe(this,"HELLO_WORLD");
+```
+
+#### offAllByTarget(target: any)
+> remove id=target event handlers and disposal the resources.
+
+```
+RxEmitter.offAllByTarget(this);
 ```
 
 ## Used in the angular
