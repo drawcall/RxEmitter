@@ -93,7 +93,6 @@ export class RxEmitter {
             this.offByTarget(target);
             this.unsubscribe(target);
         } catch (e) {
-
         }
     }
 
