@@ -20,8 +20,9 @@ export class RxEmitter {
 
     static on<T>(eventName: string, target?: any): Observable<T> {
         this.createChache<T>(eventName);
+
         if (target !== undefined) {
-            this.cache[eventName].id = target;
+            this.cache[eventName].targets.push(target);
         }
 
         return this.cache[eventName].subject;
@@ -39,7 +40,7 @@ export class RxEmitter {
         else
             this.cache[eventName].subject.next(rest);
 
-        return this.cache[eventName].id;
+        return this.cache[eventName].target;
     }
 
     static has(eventName: string): boolean {
@@ -51,24 +52,29 @@ export class RxEmitter {
     }
 
     static getByTarget(target: any, eventName?: string): ICacheObj<any>[] {
-        let cache: ICacheObj<any>[] = [];
+        let caches: ICacheObj<any>[] = [];
 
         for (let key in this.cache) {
-            let obj: ICacheObj<any> = this.cache[key];
-            if (obj.id == target) {
-                if (eventName)
-                    (eventName == obj.eventName) && cache.push(obj);
-                else
-                    cache.push(obj);
+            let cache: ICacheObj<any> = this.cache[key];
+
+            if (cache.targets.indexOf(target) > -1) {
+                if (eventName) {
+                    if (eventName == cache.eventName) caches.push(cache);
+                } else {
+                    caches.push(cache);
+                }
             }
         }
 
-        return cache;
+        return caches;
     }
 
     static off(eventName: string): any {
         if (this.cache[eventName]) {
-            for (let key in this.cache[eventName]) delete this.cache[eventName][key];
+            for (let key in this.cache[eventName]) {
+                if (key == 'targets') this.cache[eventName][key].length = 0;
+                delete this.cache[eventName][key];
+            }
         }
 
         delete this.cache[eventName];
@@ -76,7 +82,7 @@ export class RxEmitter {
 
     static unsubscribe(target: any, eventName?: string) {
         let cache: ICacheObj<any>[] = this.getByTarget(target, eventName);
-        
+
         for (let i: number = 0; i < cache.length; i++) {
             cache[i].subscription && cache[i].subscription.unsubscribe();
         }
@@ -93,8 +99,8 @@ export class RxEmitter {
 
     static offByTarget(target: any) {
         for (let key in this.cache) {
-            let obj: ICacheObj<any> = this.cache[key];
-            if (obj.id == target) delete this.cache[key];
+            let cache: ICacheObj<any> = this.cache[key];
+            if (cache.targets.indexOf(target)) delete this.cache[key];
         }
     }
 
@@ -106,11 +112,15 @@ export class RxEmitter {
         }
     }
 
-    //create cache at emit time
+    /** 
+    * create cache at emit time 
+    * eventName ->  subject
+    */
     private static createChache<T>(eventName: string): ICacheObj<T> {
         if (!this.cache[eventName]) {
             this.cache[eventName] = <ICacheObj<T>>{};
             this.cache[eventName].id = guid();
+            this.cache[eventName].targets = [];
             this.cache[eventName].eventName = eventName;
         }
 
@@ -126,6 +136,8 @@ export interface ICacheObj<T> {
     subject?: Subject<T>;
     eventName?: string;
     id?: any;
+    target?: any;
+    targets?: any[];
     callback?: (...rest: any[]) => any;
     subscription?: Subscription;
 }
