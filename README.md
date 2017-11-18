@@ -24,7 +24,7 @@ import { RxEmitter, toRxEmitter, rxEmit } from 'rxemitter';
 ...
 
 /** emit */
-Observable.form([1,2,3,4])
+Observable.from([1,2,3,4])
           .map(x => x*10)
           .toRxEmitter('ADD_AN_NUMBER')
 
