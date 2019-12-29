@@ -1,4 +1,4 @@
-![logo](https://github.com/a-jie/RxEmitter/blob/master/logo/logo.png?raw=true)
+![logo](https://github.com/drawcall/RxEmitter/blob/master/logo/logo.png?raw=true)
 
 # RxEmitter
 
