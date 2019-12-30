@@ -1,6 +1,6 @@
 {
   "name": "rxemitter",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "rxemitter = rxjs + eventbus",
   "main": "index.js",
   "scripts": {
@@ -17,14 +17,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/a-jie/RxEmitter.git"
+    "url": "git+https://github.com/drawcall/RxEmitter.git"
   },
-  "author": "a-jie",
+  "author": "drawcall",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/a-jie/RxEmitter/issues"
+    "url": "https://github.com/drawcall/RxEmitter/issues"
   },
-  "homepage": "https://github.com/a-jie/RxEmitter#readme",
+  "homepage": "https://github.com/drawcall/RxEmitter#readme",
   "devDependencies": {
     "npm-run-all": "^4.0.2",
     "rxjs": "^5.2.0",

@@ -164,7 +164,7 @@ items$: Observable<Item[]>;
 <li *ngFor="let item of items $ | async"
 ```
 
-![logo](https://github.com/a-jie/RxEmitter/blob/master/logo/emitter.png?raw=true)
+![logo](https://github.com/drawcall/RxEmitter/blob/master/logo/emitter.png?raw=true)
 
 ## Used in the vue-rx
 ### [vue-rx library](https://github.com/vuejs/vue-rx)
