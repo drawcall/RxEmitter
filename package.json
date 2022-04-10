@@ -28,7 +28,7 @@
   "devDependencies": {
     "npm-run-all": "^4.0.2",
     "rxjs": "^5.2.0",
-    "shx": "^0.2.2",
+    "shx": "^0.3.4",
     "tslint": "^5.2.0",
     "typescript": "^2.3.2"
   }
